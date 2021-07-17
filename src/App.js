@@ -1,15 +1,15 @@
-import './App.css';
-import NavBar from './Components/Layout/NavBar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import "./App.css";
+import Pokedex from "./Pokedex";
+import Pokemon from "./Pokemon";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-    </div>
+    <Switch>
+      <Route exact path="/" render={(props) => <Pokedex {...props} />} />
+      <Route path="/:pokemonid" render={(props) => <Pokemon {...props} />} />
+    </Switch>
   );
 }
 
